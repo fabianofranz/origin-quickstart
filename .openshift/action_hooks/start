@@ -1,4 +1,4 @@
 #!/bin/bash
 
-cd ${OPENSHIFT_DATA_DIR}/current
-./openshift start --listen ${HOST}:${PORT} &> ${ $OPENSHIFT_GO_LOG_DIR}/openshift.log &
+cd $OPENSHIFT_DATA_DIR/current
+./openshift start --listen=$HOST:$PORT &> $OPENSHIFT_GO_LOG_DIR/openshift.log &
