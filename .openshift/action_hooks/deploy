@@ -1,0 +1,15 @@
+#!/bin/bash
+
+dest_dir=${OPENSHIFT_DATA_DIR}current
+current_version=$(cat ${OPENSHIFT_BUILD_DEPENDENCIES_DIR}.current_version)
+build_dir=${OPENSHIFT_BUILD_DEPENDENCIES_DIR}${current_version}
+
+echo "Starting deploy..."
+
+if [ ! -d "${dest_dir}" ]; then
+  echo "Copying to ${dest_dir}..."
+  mkdir -p $dest_dir
+  cp -rf ${build_dir}/* ${dest_dir}/
+fi
+
+echo "Completed deploy."
