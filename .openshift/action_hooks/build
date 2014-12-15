@@ -1,7 +1,7 @@
 #!/bin/bash
 
-RELEASE=v0.1
-RELEASE_NAME=openshift-origin-v0.1-deef796-linux-amd64
+RELEASE="v0.1"
+RELEASE_NAME="openshift-origin-v0.1-deef796-linux-amd64"
 RELEASE_URL=https://github.com/openshift/origin/releases/download/${RELEASE}/${RELEASE_NAME}.tar.gz
 
 echo "Starting build..."
@@ -21,7 +21,7 @@ echo "Downloading ${RELEASE_URL}..."
 curl -s ${RELEASE_URL} > ${RELEASE_NAME}.tar.gz
 
 # Install
-echo "Extracting {RELEASE_NAME}.tar.gz..."
+echo "Extracting ${RELEASE_NAME}.tar.gz..."
 tar --strip-components=1 -xvf ${RELEASE_NAME}.tar.gz
 rm -rf ${RELEASE_NAME}.tar.gz
 
