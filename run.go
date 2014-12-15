@@ -7,6 +7,7 @@ import (
 
 	"github.com/golang/glog"
 	"github.com/openshift/origin/pkg/cmd/flagtypes"
+	"github.com/openshift/origin/pkg/cmd/server"
 	"github.com/openshift/origin/pkg/cmd/util/docker"
 )
 
@@ -52,7 +53,7 @@ func main() {
 		NodeList: flagtypes.StringList{"127.0.0.1"},
 	}
 
-	if err := Start(cfg, []string{}); err != nil {
+	if err := server.Start(cfg, []string{}); err != nil {
 		glog.Fatal(err)
 	}
 }
