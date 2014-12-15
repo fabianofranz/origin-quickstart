@@ -30,4 +30,7 @@ echo ${RELEASE_NAME} > ${OPENSHIFT_BUILD_DEPENDENCIES_DIR}.current_version
 
 popd >/dev/null
 
+echo "Fetching etcd..."
+go get github.com/coreos/etcd
+
 echo "Completed build."

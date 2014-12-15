@@ -1,0 +1,7 @@
+#!/bin/bash
+
+cd $GOPATH
+./bin/etcd --listen-peer-urls http://$HOST:15000 --listen-client-urls http://$HOST:15001 &> $OPENSHIFT_GO_LOG_DIR/etcd.log &
+
+cd $OPENSHIFT_DATA_DIR/current
+./openshift start --listen=$HOST:$PORT --etcd=$HOST:15001 &> $OPENSHIFT_GO_LOG_DIR/openshift.log &
