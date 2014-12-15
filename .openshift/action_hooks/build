@@ -18,11 +18,11 @@ mkdir -p $install_dir
 
 pushd ${install_dir} >/dev/null
 echo "Downloading ${RELEASE_URL}..."
-curl -s ${RELEASE_URL} > ${RELEASE_NAME}.tar.gz
+curl -s ${RELEASE_URL} > "${RELEASE_NAME}.tar.gz"
 
 # Install
 echo "Extracting ${RELEASE_NAME}.tar.gz..."
-tar --strip-components=1 -xvf ${RELEASE_NAME}.tar.gz
+tar --strip-components=1 -xvf "${RELEASE_NAME}.tar.gz"
 rm -rf ${RELEASE_NAME}.tar.gz
 
 echo "Setting current version to ${RELEASE_NAME}..."
