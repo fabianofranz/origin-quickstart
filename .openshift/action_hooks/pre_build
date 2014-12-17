@@ -1,0 +1,12 @@
+#!/bin/bash
+
+echo "Checking out latest Origin..."
+
+pushd ${OPENSHIFT_DATA_DIR} >/dev/null
+
+rm -rf origin
+git clone https://github.com/fabianofranz/origin.git
+
+popd >/dev/null
+
+echo "Completed build."

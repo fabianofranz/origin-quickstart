@@ -5,8 +5,8 @@ import (
 	"os"
 	"strconv"
 
-	"github.com/fabianofranz/origin/pkg/cmd/server"
-	"github.com/fabianofranz/origin/pkg/cmd/server/etcd"
+	"github.com/openshift/origin/pkg/cmd/server"
+	"github.com/openshift/origin/pkg/cmd/server/etcd"
 	"github.com/golang/glog"
 	"github.com/openshift/origin/pkg/cmd/flagtypes"
 	"github.com/openshift/origin/pkg/cmd/util/docker"
