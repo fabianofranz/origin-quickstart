@@ -1,36 +1,12 @@
 #!/bin/bash
 
-RELEASE="v0.1"
-RELEASE_NAME="openshift-origin-v0.1-deef796-linux-amd64"
-RELEASE_URL=https://github.com/openshift/origin/releases/download/${RELEASE}/${RELEASE_NAME}.tar.gz
+echo "Checking out latest Origin..."
 
-echo "Starting build..."
+pushd ${OPENSHIFT_DATA_DIR} >/dev/null
 
-install_dir=${OPENSHIFT_BUILD_DEPENDENCIES_DIR}${RELEASE_NAME}
-current_version_dir=${OPENSHIFT_DATA_DIR}current
-
-# If already installed in the current gear, there is nothing to do
-[ -d "${current_version_dir}" ] && exit 0
-
-echo "OpenShift Origin not yet installed..."
-
-mkdir -p $install_dir
-
-pushd ${install_dir} >/dev/null
-echo "Downloading ${RELEASE_URL}..."
-curl -s -L ${RELEASE_URL} > ${RELEASE_NAME}.tar.gz
-
-# Install
-echo Extracting ${RELEASE_NAME}.tar.gz...
-tar --strip-components=1 -xvf ${RELEASE_NAME}.tar.gz
-rm -rf ${RELEASE_NAME}.tar.gz
-
-echo "Setting current version to ${RELEASE_NAME}..."
-echo ${RELEASE_NAME} > ${OPENSHIFT_BUILD_DEPENDENCIES_DIR}.current_version
+rm -rf origin
+git clone https://github.com/fabianofranz/origin.git
 
 popd >/dev/null
-
-echo "Fetching etcd..."
-go get github.com/coreos/etcd
 
 echo "Completed build."
